@@ -17,23 +17,15 @@ li {
   grid-column: 2 / span 2;
 }
 
-.rectangle-1 {
+.rectangle1 {
   grid-column: 2 / span 3;
   width: 100%; 
-  height: 500px; 
+  height: 100px; 
   background: red;
 }
-
-.rectangle-2 {
-  grid-column: 2 / span 3;
+.rectangle2 {
+  grid-column: 5 / span 3;
   width: 100%; 
-  height: 500px; 
-  background: red;
-}
-
-.rectangle-3 {
-  grid-column: 2 / span 3;
-  width: 100%; 
-  height: 500px; 
+  height: 100px; 
   background: red;
 }
