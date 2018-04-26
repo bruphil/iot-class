@@ -6,7 +6,24 @@ $grey-50: #737373;
 $grey-10: #f9f9fa;
 
 // Spacing
+$spacing-3xs: 2px;
+$spacing-2xs: 4px;
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 40px;
+$spacing-3xl: 48px;
 
+//Layout-Spacing
+$layout-2xs: 16px;
+$layout-xs: 24px;
+$layout-sm: 32px;
+$layout-md: 48px;
+$layout-lg: 64px;
+$layout-xl: 96px;
+$layout-2xl: 160px;
 
 //Typo
 $display-20: 3.87rem; //36px
@@ -26,20 +43,48 @@ $bold: 700;
 $light: 300;
 $extra-light: 200;
 
+//Typo mixins
 @mixin display (){
   color: $grey-90;
-
   font-size: $display-20;
   font-weight: $extra-light;
+  margin-bottom: 0;
+}
 
+@mixin title-10 (){
+  color: $grey-90;
+  font-size: $title-10;
+  font-weight: $medium;
+  margin-bottom: 0;
+}
+
+@mixin title-20 (){
+  color: $grey-90;
+  font-size: $title-20;
+  font-weight: $medium;
+  margin-bottom: 0;
+}
+
+@mixin title-30 (){
+  color: $grey-90;
+  font-size: $title-30;
+  font-weight: $light;
+  margin-bottom: 0;
 }
 
 @mixin body (){
   color: $grey-90;
-
   font-weight: $normal;
+  margin-bottom: 0;
 }
 
+@mixin caption (){
+  color: $grey-90;
+  font-weight: $normal;
+  margin-bottom: 0;
+}
+
+//Typography class
 body {
   font-family: 'Fira Sans', sans-serif;
   font-size: 17px;
@@ -51,65 +96,184 @@ h1 {
   @include display;
 }
 
-hr {
+h2 {
+  @include title-30;
+}
 
+h3 {
+  @include title-20;
+}
+
+h4 {
+  @include title-10;
+}
+
+.body-30 {
+  font-size: $body-30;
+  @include body;
+}
+
+.body-20 {
+  font-size: $body-20;
+  @include body;
 }
 
 .body-10 {
   font-size: $body-10;
-
   @include body;
 }
+
+.caption-30 {
+  font-size: $caption-30;
+  @include caption;
+}
+
+.caption-20 {
+  font-size: $caption-20;
+  @include caption;
+}
+
+
+//Layout-Spacing mixins
+@mixin layout-spacing-2xs (){
+  height: $layout-2xs;
+  //background: $grey-10;
+  grid-column: 1 / span 8;
+}
+
+@mixin layout-spacing-xs (){
+  height: $layout-xs;
+  //background: $grey-10;
+  grid-column: 1 / span 8;
+}
+
+@mixin layout-spacing-sm (){
+  height: $layout-sm;
+  //background: $grey-10;
+  grid-column: 1 / span 8;
+}
+
+@mixin layout-spacing-md (){
+  height: $layout-md;
+  //background: $grey-10;
+  grid-column: 1 / span 8;
+}
+
+@mixin layout-spacing-lg (){
+  height: $layout-lg;
+  //background: $grey-10;
+  grid-column: 1 / span 8;
+}
+
+@mixin layout-spacing-xl (){
+  height: $layout-xl;
+  //background: $grey-10;
+  grid-column: 1 / span 8;
+}
+
+@mixin layout-spacing-2xl (){
+  height: $layout-2xl;
+  //background: $grey-10;
+  grid-column: 1 / span 8;
+}
+
+//Layout-Spacing Class
+.layout-spacing-2xs {
+  @include layout-spacing-2xs;
+}
+
+.layout-spacing-xs {
+  @include layout-spacing-xs;
+}
+
+.layout-spacing-sm {
+  @include layout-spacing-sm;
+}
+
+.layout-spacing-md {
+  @include layout-spacing-md;
+}
+
+.layout-spacing-lg {
+  @include layout-spacing-lg;
+}
+
+.layout-spacing-xl {
+  @include layout-spacing-xl;
+}
+
+.layout-spacing-2xl {
+  @include layout-spacing-2xl;
+}
+
+
 
 .all {
   display: grid;
   grid-template-columns: 1fr 5fr
 }
 
+//Side Navigation
 .main-nav{
-  margin-top: 48px;
+  margin-top: $layout-sm;
 }
 
 .main-nav__child {
   position: fixed;
 }
 
-.main-content {
-  margin-top: 48px;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 5% repeat(6, 1fr) 5%;
-  grid-column-gap: 20px;
-  grid-template-rows: 5% repeat(6, 1fr) 5%;
-  grid-row-gap: 20px;
+li {
+  @include body;
+  font-size: $body-10;
+  list-style: none;
+  padding-bottom: $spacing-2xs;
 }
 
-.title {
-  grid-column: 2 / span 4;
+
+
+//General Stuff
+.main-content {
+  margin-top: $layout-xs;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 3% repeat(6, 1fr) 3%;
+  grid-column-gap: 20px;
+}
+
+.project-title {
+  grid-column: 2 / span 6;
+  padding: 0 0 0 0;
+  @include display;
 }
 
 .intro-txt{
+  font-size: $body-30;
+  font-weight: $light;
   grid-column: 2 / span 4;
-  grid-row: 2;
 }
 
+
+
+//Page Content
 .rectangle1 {
   grid-column: 2 / span 3;
-  grid-row: 6;
   width: 100%;
-  height: 100px;
+  height: 300px;
   background: red;
 }
 .rectangle2 {
   grid-column: 5 / span 3;
   width: 100%;
-  height: 100px;
+  height: 300px;
   background: red;
-
-  grid-row: 6;
 }
 
-#go_to_symmetrie {
+.paragraph-1-1 {
+  grid-column: 2 / span 3;
+  @include body;
+  font-size: $body-20;
+}
+
+#go_to_topic-1-1 {
   grid-column: 2 / span 4;
-  grid-row: 5;
 }
